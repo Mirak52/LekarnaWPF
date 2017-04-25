@@ -1,0 +1,45 @@
+﻿<Window x:Class="Lékárna.MedicineViewer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lékárna"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920" MinHeight="350" MinWidth="500" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <ListView Margin="0,20,850,0" Name="Medicine">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Allergen" Width="300" DisplayMemberBinding="{Binding Allergen}" />
+                    <GridViewColumn Header="Price" Width="220" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Important" Width="300" DisplayMemberBinding="{Binding Important}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="UserName" Content="Name" HorizontalAlignment="Right" FontSize="80" Width="240" Margin="0,10,286,936"/>
+
+        <Label x:Name="ShoppingList" Content="Shopping list" Margin="1070,479,509,-478" FontSize="35"></Label>
+        <ListView Margin="1070,526,-8,239" Name="ShopList" HorizontalAlignment="Left" Width="850">
+
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Price" Width="220" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Amount" Width="388" DisplayMemberBinding="{Binding Amount}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="Price" Content="Price" Margin="1452,908,355,73" FontSize="40" FontWeight="Bold"></Label>
+        <Button x:Name="Buy" Content="Buy" HorizontalAlignment="Right" Margin="0,981,325,0" VerticalAlignment="Top" Width="164" Height="58" FontSize="40" FontWeight="Bold"/>
+
+
+    </Grid>
+</Window>
