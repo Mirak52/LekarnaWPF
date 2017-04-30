@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lékárna"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="Registration" Height="1080" Width="1920">
     <Grid>
         <StackPanel HorizontalAlignment="Center" Margin="0,200,0,0">
@@ -15,9 +16,11 @@
             <Label x:Name="PassA" Content="Password again" FontSize="20"/>
             <TextBox x:Name="PassBA" Height="40" TextWrapping="Wrap" Text="" Width="200" FontSize="20"/>
             <Label Height="20"/>
-            <Button x:Name="Register" Height="40" Width="200" Content="Registration"/>
+            <Button x:Name="Register" Height="40" Width="200" Content="Registration" Click="Register_Click"/>
             <Label Height="20"/>
-            <Button x:Name="Back" Height="40" Width="115" Content="Back to login"/>
+            <Button x:Name="Back" Height="40" Width="115" Content="Back to login" Click="Back_Click"/>
+            <Label Height="20"/>
+            <Label x:Name="Error"  Width="200" FontSize="20" />
         </StackPanel>
 
     </Grid>

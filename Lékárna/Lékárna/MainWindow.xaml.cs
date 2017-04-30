@@ -24,5 +24,12 @@ namespace Lékárna
         {
             InitializeComponent();
         }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Registration Page = new Registration();
+            Page.Show();
+            this.Close();
+        }
     }
 }

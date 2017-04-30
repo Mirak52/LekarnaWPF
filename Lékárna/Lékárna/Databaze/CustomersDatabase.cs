@@ -20,18 +20,12 @@ namespace Lékárna
         {
             return database.QueryAsync<Customers>("DELETE FROM [Osoby]");
         }
-        public Task<List<Customers>> QueryCustomID(int ID)
+      
+        public Task<List<Customers>> QueryCustomExist()
         {
-            return database.QueryAsync<Customers>("DELETE FROM [Customers] WHERE [ID] =" + ID);
+            return database.QueryAsync<Customers>("select * FROM [Customers] ");
         }
-        public Task<List<Customers>> QueryCustomUPDATE(string name, string text, int ID)
-        {
-
-
-            //  return database.QueryAsync<Osoby>("UPDATE [Osoby] (Name,Text) VALUES (" + name + "," + text + ") WHERE [ID] =" + ID);
-
-            return database.QueryAsync<Customers>("UPDATE [Customers] SET Name = @name , Text = text WHERE[ID] = " + ID);
-        }
+       
         public Task<List<Customers>> Add()
         {
             return database.QueryAsync<Customers>("INSERT INTO [Customers] (Name,Text) VALUES (`Ahoj`,`Pepa`)");

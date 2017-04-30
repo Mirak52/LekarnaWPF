@@ -11,6 +11,6 @@ namespace Lékárna.Databaze
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }
-        public string id_Allergen { get; set; }
+        public string Id_Allergen { get; set; }
     }
 }
