@@ -28,6 +28,34 @@ namespace Lékárna
                 return _customers;
             }
         }
+        public static AllergenDatabase _allergen;
+
+        public static AllergenDatabase DatabaseAllergen
+        {
+            get
+            {
+                if (_allergen == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _allergen = new AllergenDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _allergen;
+            }
+        }
+        public static CostumerAllergenDatabase _CostumerAllergen;
+
+        public static CostumerAllergenDatabase DatabaseCostumerAllergen
+        {
+            get
+            {
+                if (_CostumerAllergen == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _CostumerAllergen = new CostumerAllergenDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _CostumerAllergen;
+            }
+        }
         internal static string GetStringSha256Hash(string text)
         {
             if (String.IsNullOrEmpty(text))

@@ -94,6 +94,8 @@
     </ApplicationDefinition>
     <Compile Include="Databaze\Allergen.cs" />
     <Compile Include="Databaze\AllergenDatabase.cs" />
+    <Compile Include="Databaze\CostumerAllergen.cs" />
+    <Compile Include="Databaze\CostumerAllergenDatabase.cs" />
     <Compile Include="Databaze\Customers.cs" />
     <Compile Include="Databaze\CustomersDatabase.cs" />
     <Compile Include="Databaze\Drug.cs" />

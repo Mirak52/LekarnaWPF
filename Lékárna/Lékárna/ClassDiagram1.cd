@@ -10,7 +10,7 @@
   <Class Name="Lékárna.Customers">
     <Position X="6.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAIAAAAAQAAAAQCAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAIAAAAAQAAAAACAACAAAAAAAAAAA=</HashCode>
       <FileName>Databaze\Customers.cs</FileName>
     </TypeIdentifier>
   </Class>

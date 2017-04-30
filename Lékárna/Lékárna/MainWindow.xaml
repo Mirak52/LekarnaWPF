@@ -11,12 +11,14 @@
 
         <ListView  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-250,0,0" OpacityMask="Red" Foreground="#DDFF0000"  BorderBrush="#89FF0000" RenderTransformOrigin="0.5,0.5" SelectedIndex="0">
             <Label x:Name="Name" Content="Jméno" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
-            <TextBox x:Name="NameB" HorizontalAlignment="Center" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" FontSize="20"/>
+            <TextBox x:Name="NameB" HorizontalAlignment="Center" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="320" FontSize="20"/>
             <Label x:Name="Pass" Content="Heslo" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="20"/>
-            <TextBox x:Name="PassB" HorizontalAlignment="Center" Height="35"  TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Width="220" FontSize="20"/>
-            <Button x:Name="Loggin" Content="Přihlásit" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="220" Height="45" FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="PassB" HorizontalAlignment="Center" Height="35"  TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Width="320" FontSize="20"/>
+            <Button x:Name="Loggin" Content="Přihlásit" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="320" Height="45" FontSize="20" FontWeight="Bold" Click="Loggin_Click"/>
+            <Label Height="20"/>
+            <Label x:Name="Error"  Width="320" FontSize="20" />
         </ListView>
-        <Button x:Name="Register" Content="Registrovat" HorizontalAlignment="Center" Margin="840,534,962,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" Click="Register_Click"/>
-        <Button x:Name="Forgot" Content="Heslo?" HorizontalAlignment="Center" Margin="964,534,838,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" />
+        <Button x:Name="Register" Content="Registrovat" HorizontalAlignment="Center" Margin="840,580,962,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" Click="Register_Click"/>
+        <Button x:Name="Forgot" Content="Heslo?" HorizontalAlignment="Center" Margin="964,580,838,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" Click="Forgot_Click" />
     </Grid>
 </Window>

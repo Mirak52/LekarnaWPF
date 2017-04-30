@@ -19,7 +19,7 @@ namespace Lékárna
     /// </summary>
     public partial class MedicineViewer : Window
     {
-        public MedicineViewer()
+        public MedicineViewer(string name,int ID)
         {
             InitializeComponent();
         }

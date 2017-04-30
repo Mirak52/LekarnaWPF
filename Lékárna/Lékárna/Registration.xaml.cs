@@ -55,6 +55,9 @@ namespace Lékárna
                              customer.Password = passHash;
                              App.DatabaseCustomers.SaveItemAsync(customer);
                             Error.Content = " Účet uspěšně vytvořen!";
+                            NameB.Text = "";
+                            PassB.Text = "";
+                            PassBA.Text = "";
                         }
                         else
                         {
@@ -82,7 +85,9 @@ namespace Lékárna
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow Page = new MainWindow();
+            Page.Show();
+            this.Close();
         }
     }
 }
