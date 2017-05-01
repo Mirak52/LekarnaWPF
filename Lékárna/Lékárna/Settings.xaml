@@ -16,7 +16,8 @@
             <Label Content="Seznam vašich alergií" FontSize="45" HorizontalAlignment="Center"></Label>
             <ListView x:Name="HaveAllergen" SelectionChanged="ClickRem"></ListView>
         </StackPanel>
-        <TextBox x:Name="Test" HorizontalAlignment="Left" Height="23" Margin="1460,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Add" Content="add" HorizontalAlignment="Left" Margin="1479,334,0,0" VerticalAlignment="Top" Width="75" Click="Add_Click"/>
+        <Button x:Name="Shop" Content="Obchod" FontSize="40" Height="80" HorizontalAlignment="Left" Margin="1479,334,0,0" VerticalAlignment="Top" Width="250" Click="Shop_Click"/>
+        <Button x:Name="Back" Content="Odhlásit se" FontSize="40" Height="80"  HorizontalAlignment="Left" Margin="1479,462,0,0" VerticalAlignment="Top" Width="250" Click="Back_Click"/>
+
     </Grid>
 </Window>

@@ -17,11 +17,41 @@ namespace Lékárna
     /// <summary>
     /// Interaction logic for MedicineViewer.xaml
     /// </summary>
+ 
     public partial class MedicineViewer : Window
     {
-        public MedicineViewer(string name,int ID)
+        public string jmeno = "";
+        public MedicineViewer(string name)
         {
             InitializeComponent();
+            jmeno = name;
+            View();
+        }
+
+        private void View()
+        {
+            string check ="";
+            int first = 0;
+            var Drugs = App.DatabaseDrug.GetItemsNotDoneAsync().Result; 
+            foreach (var drug in Drugs)
+            {
+                if (first == 0)
+                {
+                    check = drug.Name;
+                }
+                var Allergy = App.DatabaseCostumerAllergen.QueryCustomExist(jmeno).Result;
+                foreach (var Allergie in Drugs)
+                {
+                    if (check == drug.Name)
+                    {
+                        
+                    }
+
+
+                }
+
+                first++;
+            }
         }
     }
 }

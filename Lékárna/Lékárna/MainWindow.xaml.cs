@@ -24,6 +24,13 @@ namespace Lékárna
         public MainWindow()
         {
             InitializeComponent();
+            /*Drug alergen = new Drug();
+            alergen.Name = "Ibalgin";
+            alergen.Id_Allergen = "1";
+            alergen.price = "69";
+            alergen.warning = "jed";
+            
+            App.DatabaseDrug.SaveItemAsync(alergen); */
         }
 
 
@@ -56,14 +63,14 @@ namespace Lékárna
                     {
                         if (decision == 1)
                         {
-                            MedicineViewer Page = new MedicineViewer(name, ID);
+                            MedicineViewer Page = new MedicineViewer(name);
                             Page.Show();
                             this.Close();
                         }
                         else
                         {
-                            //Settings Page = new Settings(name, ID);
-                            //Page.Show();
+                            Settings Page = new Settings(name);
+                            Page.Show();
                             this.Close();
                         }
                     }
@@ -102,10 +109,7 @@ namespace Lékárna
 
         private void Forgot_Click(object sender, RoutedEventArgs e)
         {
-            string marek = "marek";
-            Settings Page = new Settings(1);
-            Page.Show();
-            this.Close();
+         
 
         }
     }

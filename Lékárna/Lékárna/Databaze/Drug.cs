@@ -12,5 +12,7 @@ namespace Lékárna.Databaze
         public int ID { get; set; }
         public string Name { get; set; }
         public string Id_Allergen { get; set; }
+        public string price { get; set; }
+
     }
 }

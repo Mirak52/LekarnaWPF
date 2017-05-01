@@ -24,28 +24,15 @@ namespace Lékárna
         public string jmeno;
         public List<string> list = new List<string>();
         public List<string> list1 = new List<string>();
-        public Settings(int ID)
+        public Settings(string name)
         {
-
             InitializeComponent();
-          
-            /*List<int> list = new List<int>();
-            list.Add(2);
-            list.Add(3);
-            list.Add(5);
-            list.Add(7);
-            Allergen.ItemsSource = list;
-            CostumerAllergen alergen = new CostumerAllergen();
-            alergen.Name = name;
-            alergen.Id_Allergen = 1;
-            App.DatabaseCostumerAllergen.SaveItemAsync(alergen);*/
-            View();
-            jmeno = "marek";
+            jmeno = name;
+            View();        
         }
 
         private void View()
-        {
-            jmeno = "marek";
+        {          
             var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(jmeno).Result;//první smyčka
             var Allergy = App.DatabaseAllergen.QueryCustom().Result;//druhá smyčka
             foreach (var listHaveAllergy in HaveAllergy)
@@ -67,11 +54,7 @@ namespace Lékárna
             }
             AllergenL.ItemsSource = list1;
             HaveAllergen.ItemsSource = list;
-            
         }
-           
-        //}
-
         private void ClickRem(object sender, SelectionChangedEventArgs e)
         {
             string osoba = (string)HaveAllergen.SelectedItems[0];
@@ -80,38 +63,36 @@ namespace Lékárna
             {
                 App.DatabaseCostumerAllergen.QueryCustom(jmeno,listHaveAllergy.ID);
             }
-            Settings Page = new Settings(1);
+            Settings Page = new Settings(jmeno);
             Page.Show();
             this.Close();
         }
-
         private void ClickAdd(object sender, SelectionChangedEventArgs e)
         {
             string osoba = (string) AllergenL.SelectedItems[0];
             var HaveAllergy = App.DatabaseAllergen.QueryCustomExist(osoba).Result;
             foreach (var listHaveAllergy in HaveAllergy)
             {
-                
                 CostumerAllergen alergen = new CostumerAllergen();
                 alergen.Name = jmeno;
                 alergen.Id_Allergen = listHaveAllergy.ID;
                 App.DatabaseCostumerAllergen.SaveItemAsync(alergen);
-              
-               
-
             }
-
-            Settings Page = new Settings(1);
-            Page.Show();
+            Settings page = new Settings(jmeno);
+            page.Show();
             this.Close();
-
         }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Allergen alergen = new Allergen();
-            alergen.Name = Test.Text;
-            App.DatabaseAllergen.SaveItemAsync(alergen);
+            MainWindow page = new MainWindow();
+            page.Show();
+            this.Close();
+        }
+        private void Shop_Click(object sender, RoutedEventArgs e)
+        {
+            MedicineViewer page = new MedicineViewer(jmeno);
+            page.Show();
+            this.Close();
         }
     }
 }
