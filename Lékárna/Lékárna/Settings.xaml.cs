@@ -20,10 +20,15 @@ namespace Lékárna
     /// </summary>
     public partial class Settings : Window
     {
+
         public string jmeno;
+        public List<string> list = new List<string>();
+        public List<string> list1 = new List<string>();
         public Settings(int ID)
         {
+
             InitializeComponent();
+          
             /*List<int> list = new List<int>();
             list.Add(2);
             list.Add(3);
@@ -34,41 +39,13 @@ namespace Lékárna
             alergen.Name = name;
             alergen.Id_Allergen = 1;
             App.DatabaseCostumerAllergen.SaveItemAsync(alergen);*/
-            Show();
+            View();
             jmeno = "marek";
         }
 
-        private void Show()
+        private void View()
         {
-            bool cycle = true;
             jmeno = "marek";
-            List<string> list = new List<string>();
-            List<string> list1 = new List<string>();
-            /*var Allergy = App.DatabaseAllergen.QueryCustom().Result;
-            foreach (var listAllergy in Allergy)
-            {
-                var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(jmeno).Result;
-                foreach (var listHaveAllergy in HaveAllergy)
-                {
-                    if (listHaveAllergy.Id_Allergen == listAllergy.ID)
-                    {
-
-                        list.Add(listAllergy.Name);
-
-                    }
-                    else
-                    {
-                        if (cycle)
-                        {
-
-                            list1.Add(listAllergy.Name);
-                            
-                        }
-                    }
-                   
-                }
-                */
-           
             var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(jmeno).Result;//první smyčka
             var Allergy = App.DatabaseAllergen.QueryCustom().Result;//druhá smyčka
             foreach (var listHaveAllergy in HaveAllergy)
@@ -78,7 +55,6 @@ namespace Lékárna
                     if (listHaveAllergy.Id_Allergen == listAllergy.ID)
                     {
                         list.Add(listAllergy.Name);
-                        cycle = false;
                     } 
                 }
             }
@@ -91,20 +67,27 @@ namespace Lékárna
             }
             AllergenL.ItemsSource = list1;
             HaveAllergen.ItemsSource = list;
+            
         }
            
         //}
 
         private void ClickRem(object sender, SelectionChangedEventArgs e)
         {
-            //Allergen osoba = (Osoby)ToDoItemsListView.SelectedItems[0];
-
+            string osoba = (string)HaveAllergen.SelectedItems[0];
+            var HaveAllergy = App.DatabaseAllergen.QueryCustomExist(osoba).Result;
+            foreach (var listHaveAllergy in HaveAllergy)
+            {
+                App.DatabaseCostumerAllergen.QueryCustom(jmeno,listHaveAllergy.ID);
+            }
+            Settings Page = new Settings(1);
+            Page.Show();
+            this.Close();
         }
 
         private void ClickAdd(object sender, SelectionChangedEventArgs e)
         {
             string osoba = (string) AllergenL.SelectedItems[0];
-            Test.Text = osoba;
             var HaveAllergy = App.DatabaseAllergen.QueryCustomExist(osoba).Result;
             foreach (var listHaveAllergy in HaveAllergy)
             {
@@ -113,9 +96,15 @@ namespace Lékárna
                 alergen.Name = jmeno;
                 alergen.Id_Allergen = listHaveAllergy.ID;
                 App.DatabaseCostumerAllergen.SaveItemAsync(alergen);
-                
+              
+               
+
             }
-          
+
+            Settings Page = new Settings(1);
+            Page.Show();
+            this.Close();
+
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

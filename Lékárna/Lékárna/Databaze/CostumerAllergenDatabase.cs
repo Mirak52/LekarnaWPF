@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
@@ -16,9 +17,9 @@ namespace Lékárna.Databaze
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<CostumerAllergen>().Wait();
         }
-        public Task<List<CostumerAllergen>> QueryCustom()
+        public Task<List<CostumerAllergen>> QueryCustom(string i,int ID)
         {
-            return database.QueryAsync<CostumerAllergen>("DELETE FROM [CostumerAllergen]");
+            return database.QueryAsync<CostumerAllergen>("DELETE FROM [CostumerAllergen] where Name = '" + i + "' AND Id_Allergen =  '" + ID + "'");
         }
 
         public Task<List<CostumerAllergen>> QueryCustomExist(string i)
