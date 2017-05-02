@@ -38,7 +38,7 @@ namespace Lékárna.Databaze
         // Query using SQL query string
         public Task<List<Drug>> GetItemsNotDoneAsync()
         {
-            return database.QueryAsync<Drug>("SELECT * FROM [Drug] WHERE [Done] = 0");
+            return database.QueryAsync<Drug>("SELECT * FROM [Drug]");
         }
 
         // Query using LINQ

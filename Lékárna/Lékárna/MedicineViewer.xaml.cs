@@ -20,38 +20,51 @@ namespace Lékárna
  
     public partial class MedicineViewer : Window
     {
-        public string jmeno = "";
-        public MedicineViewer(string name)
+        public int ID = 0;
+        public MedicineViewer(int id)
         {
             InitializeComponent();
-            jmeno = name;
+            ID = id;
             View();
         }
 
         private void View()
         {
-            string check ="";
-            int first = 0;
+            List<int> list = new List<int>();
+            List<string> okDrugs = new List<string>();
+            var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(ID).Result;
+            foreach(var CostumerAllergy in HaveAllergy)
+            {
+                list.Add(CostumerAllergy.Id_Allergen);
+            }
+            bool found = true;
             var Drugs = App.DatabaseDrug.GetItemsNotDoneAsync().Result; 
             foreach (var drug in Drugs)
-            {
-                if (first == 0)
+            { 
+                var DrugAllergen = App.DatabaseDrugAllergen.QueryCustomExist(drug.ID).Result;
+                foreach (var Allergie in DrugAllergen)
                 {
-                    check = drug.Name;
-                }
-                var Allergy = App.DatabaseCostumerAllergen.QueryCustomExist(jmeno).Result;
-                foreach (var Allergie in Drugs)
-                {
-                    if (check == drug.Name)
+                    if (list.Contains(Allergie.Id_Allergen))
                     {
-                        
+                        found = false;
                     }
-
-
                 }
-
-                first++;
+                if (found)
+                {
+                    okDrugs.Add(drug.Name);
+                }
+                found = true;
             }
+            Medicine.ItemsSource = okDrugs;
+        }
+
+      
+
+        private void Settings_Click_1(object sender, RoutedEventArgs e)
+        {
+            Settings page = new Settings(ID);
+            page.Show();
+            this.Close();
         }
     }
 }

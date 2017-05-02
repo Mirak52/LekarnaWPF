@@ -92,6 +92,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddAllergen.xaml.cs">
+      <DependentUpon>AddAllergen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Databaze\Allergen.cs" />
     <Compile Include="Databaze\AllergenDatabase.cs" />
     <Compile Include="Databaze\CostumerAllergen.cs" />
@@ -99,6 +102,8 @@
     <Compile Include="Databaze\Customers.cs" />
     <Compile Include="Databaze\CustomersDatabase.cs" />
     <Compile Include="Databaze\Drug.cs" />
+    <Compile Include="Databaze\DrugAllergen.cs" />
+    <Compile Include="Databaze\DrugAllergenDatabase.cs" />
     <Compile Include="Databaze\DrugDatabase.cs" />
     <Compile Include="Databaze\FileHelper.cs" />
     <Compile Include="MedicineViewer.xaml.cs">
@@ -116,6 +121,10 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddAllergen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

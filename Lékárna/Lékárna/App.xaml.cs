@@ -70,6 +70,20 @@ namespace Lékárna
                 return _Drug;
             }
         }
+        public static DrugAllergenDatabase _DrugAllergen;
+
+        public static DrugAllergenDatabase DatabaseDrugAllergen
+        {
+            get
+            {
+                if (_DrugAllergen == null)
+                {
+                    var fileHelper = new FileHelper();
+                    _DrugAllergen = new DrugAllergenDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
+                }
+                return _DrugAllergen;
+            }
+        }
         internal static string GetStringSha256Hash(string text)
         {
             if (String.IsNullOrEmpty(text))

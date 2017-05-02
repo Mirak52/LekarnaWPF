@@ -21,19 +21,19 @@ namespace Lékárna
     public partial class Settings : Window
     {
 
-        public string jmeno;
-        public List<string> list = new List<string>();
+        public int ID;
+        public List<string> list = new List<string>(); //list view observable
         public List<string> list1 = new List<string>();
-        public Settings(string name)
+        public Settings(int id)
         {
             InitializeComponent();
-            jmeno = name;
+            ID = id;
             View();        
         }
 
         private void View()
         {          
-            var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(jmeno).Result;//první smyčka
+            var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(ID).Result;//první smyčka
             var Allergy = App.DatabaseAllergen.QueryCustom().Result;//druhá smyčka
             foreach (var listHaveAllergy in HaveAllergy)
             {
@@ -61,9 +61,9 @@ namespace Lékárna
             var HaveAllergy = App.DatabaseAllergen.QueryCustomExist(osoba).Result;
             foreach (var listHaveAllergy in HaveAllergy)
             {
-                App.DatabaseCostumerAllergen.QueryCustom(jmeno,listHaveAllergy.ID);
+                App.DatabaseCostumerAllergen.QueryCustom(ID, listHaveAllergy.ID);
             }
-            Settings Page = new Settings(jmeno);
+            Settings Page = new Settings(ID);
             Page.Show();
             this.Close();
         }
@@ -74,11 +74,11 @@ namespace Lékárna
             foreach (var listHaveAllergy in HaveAllergy)
             {
                 CostumerAllergen alergen = new CostumerAllergen();
-                alergen.Name = jmeno;
+                alergen.Id_Costumer = ID;
                 alergen.Id_Allergen = listHaveAllergy.ID;
                 App.DatabaseCostumerAllergen.SaveItemAsync(alergen);
             }
-            Settings page = new Settings(jmeno);
+            Settings page = new Settings(ID);
             page.Show();
             this.Close();
         }
@@ -90,7 +90,7 @@ namespace Lékárna
         }
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
-            MedicineViewer page = new MedicineViewer(jmeno);
+            MedicineViewer page = new MedicineViewer(ID);
             page.Show();
             this.Close();
         }

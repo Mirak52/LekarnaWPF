@@ -9,7 +9,7 @@
         Title="Registration" Height="1080" Width="1920">
     <Grid>
         <StackPanel HorizontalAlignment="Center" Margin="0,200,0,0">
-            <Label x:Name="Name" Content="Name" FontSize="20"/>
+            <Label x:Name="Name" Content="Login name" FontSize="20"/>
             <TextBox x:Name="NameB" Height="40" TextWrapping="Wrap" Text="" Width="300" FontSize="20"/>
             <Label x:Name="Pass" Content="Password" FontSize="20"/>
             <TextBox x:Name="PassB" Height="40" TextWrapping="Wrap" Text="" Width="300" FontSize="20"/>

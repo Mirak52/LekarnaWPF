@@ -17,14 +17,14 @@ namespace Lékárna.Databaze
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<CostumerAllergen>().Wait();
         }
-        public Task<List<CostumerAllergen>> QueryCustom(string i,int ID)
+        public Task<List<CostumerAllergen>> QueryCustom(int i,int ID)
         {
-            return database.QueryAsync<CostumerAllergen>("DELETE FROM [CostumerAllergen] where Name = '" + i + "' AND Id_Allergen =  '" + ID + "'");
+            return database.QueryAsync<CostumerAllergen>("DELETE FROM [CostumerAllergen] where Id_Costumer = '" + i + "' AND Id_Allergen =  '" + ID + "'");
         }
 
-        public Task<List<CostumerAllergen>> QueryCustomExist(string i)
+        public Task<List<CostumerAllergen>> QueryCustomExist(int i)
         {
-            return database.QueryAsync<CostumerAllergen>("select * FROM [CostumerAllergen] where Name ='" + i + "'");
+            return database.QueryAsync<CostumerAllergen>("select * FROM [CostumerAllergen] where Id_Costumer ='" + i + "'");
         }
 
         public Task<List<CostumerAllergen>> Add()

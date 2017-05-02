@@ -63,13 +63,13 @@ namespace Lékárna
                     {
                         if (decision == 1)
                         {
-                            MedicineViewer Page = new MedicineViewer(name);
+                            MedicineViewer Page = new MedicineViewer(ID);
                             Page.Show();
                             this.Close();
                         }
                         else
                         {
-                            Settings Page = new Settings(name);
+                            Settings Page = new Settings(ID);
                             Page.Show();
                             this.Close();
                         }
@@ -109,7 +109,9 @@ namespace Lékárna
 
         private void Forgot_Click(object sender, RoutedEventArgs e)
         {
-         
+            AddAllergen Page = new AddAllergen();
+            Page.Show();
+            this.Close();
 
         }
     }
