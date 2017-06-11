@@ -21,6 +21,8 @@ namespace Lékárna
     public partial class MedicineViewer : Window
     {
         public int ID = 0;
+        public List<OrderList> Order = new List<OrderList>();
+
         public MedicineViewer(int id)
         {
             InitializeComponent();
@@ -55,6 +57,7 @@ namespace Lékárna
                 }
                 found = true;
             }
+          
             Medicine.ItemsSource = okDrugs;
         }
 
@@ -75,12 +78,31 @@ namespace Lékárna
             public string WarningList { get; set; }
         
         }
+        public class OrderList
+        {
+            public string NameList1 { get; set; }
+
+            public string MoneyList1 { get; set; }
+        }
+
 
         private void Medicine_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+          
             dynamic selectedItem = Medicine.SelectedItems[0]; //hurá! :D
-            var Test = selectedItem.MoneyList;
+            string Test = selectedItem.MoneyList;
+            Order.Add(new OrderList() { NameList1 = Test, MoneyList1 = selectedItem.MoneyList});
+            ShopList.ItemsSource = "";
+            ShopList.ItemsSource = Order;
             Price.Content = Test;
+        }
+     
+        private void ShopList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dynamic Select =(ShopList.SelectedItems[0]);
+            Order.Remove(Select);
+            ShopList.ItemsSource = "";
+            ShopList.ItemsSource = Order;
         }
     }
 }
