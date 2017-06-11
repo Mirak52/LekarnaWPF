@@ -31,7 +31,7 @@ namespace Lékárna
         private void View()
         {
             List<int> list = new List<int>();
-            List<string> okDrugs = new List<string>();
+            List<DrugList> okDrugs = new List<DrugList>();
             var HaveAllergy = App.DatabaseCostumerAllergen.QueryCustomExist(ID).Result;
             foreach(var CostumerAllergy in HaveAllergy)
             {
@@ -51,7 +51,7 @@ namespace Lékárna
                 }
                 if (found)
                 {
-                    okDrugs.Add(drug.Name);
+                    okDrugs.Add(new DrugList(){ NameList = drug.Name, MoneyList = drug.price, WarningList = drug.warning });
                 }
                 found = true;
             }
@@ -65,6 +65,22 @@ namespace Lékárna
             Settings page = new Settings(ID);
             page.Show();
             this.Close();
+        }
+        public class DrugList
+        {
+            public string NameList { get; set; }
+
+            public string MoneyList { get; set; }
+
+            public string WarningList { get; set; }
+        
+        }
+
+        private void Medicine_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dynamic selectedItem = Medicine.SelectedItems[0]; //hurá! :D
+            var Test = selectedItem.MoneyList;
+            Price.Content = Test;
         }
     }
 }
