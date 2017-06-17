@@ -22,7 +22,8 @@ namespace Lékárna
     {
         public int ID = 0;
         public List<OrderList> Order = new List<OrderList>();
-
+        public int y;
+        public int x;
         public MedicineViewer(int id)
         {
             InitializeComponent();
@@ -90,19 +91,29 @@ namespace Lékárna
         {
           
             dynamic selectedItem = Medicine.SelectedItems[0]; //hurá! :D
-            string Test = selectedItem.MoneyList;
-            Order.Add(new OrderList() { NameList1 = Test, MoneyList1 = selectedItem.MoneyList});
+
+           
+            
+
+           
+            string text = selectedItem.MoneyList;
+            Int32.TryParse(text, out y);
+            Order.Add(new OrderList() { NameList1 = text, MoneyList1 = selectedItem.MoneyList});
             ShopList.ItemsSource = "";
+            x = x + y;
             ShopList.ItemsSource = Order;
-            Price.Content = Test;
+            Price.Content = x;
+            
         }
      
         private void ShopList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {}
+        private void Buy_Copy_Click(object sender, RoutedEventArgs e)
         {
-            dynamic Select =(ShopList.SelectedItems[0]);
-            Order.Remove(Select);
+            Order.Clear();
             ShopList.ItemsSource = "";
             ShopList.ItemsSource = Order;
+            Price.Content = "";
         }
     }
 }
