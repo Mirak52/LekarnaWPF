@@ -50,7 +50,7 @@ namespace Lékárna
 
             alergen.Name = NameB.Text;
             alergen.price = PassB.Text;
-            alergen.warning = PassBA.Text;
+            alergen.warning = PassBA.Text; 
             App.DatabaseDrug.SaveItemAsync(alergen);
 
         }
