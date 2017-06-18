@@ -37,7 +37,7 @@
             </ListView.View>
         </ListView>
         <Label x:Name="Price" Content="Price" Margin="1402,778,-452,-1327" FontSize="40" FontWeight="Bold"></Label>
-        <Button x:Name="Buy" Content="Buy" HorizontalAlignment="Right" Margin="0,857,236,0" VerticalAlignment="Top" Width="164" Height="58" FontSize="40" FontWeight="Bold"/>
+        <Button x:Name="Buy" Content="Buy" HorizontalAlignment="Right" Margin="0,857,236,0" VerticalAlignment="Top" Width="164" Height="58" FontSize="40" FontWeight="Bold" Click="Buy_Click"/>
         <Button x:Name="Settings" Content="Add new allergen" HorizontalAlignment="Left" Margin="1146,961,0,0" VerticalAlignment="Top" Width="316" FontSize="30" Height="42" Click="Settings_Click_1"/>
         <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Left" Margin="1492,961,0,0" VerticalAlignment="Top" Width="314" FontSize="30" Height="42"/>
         <Button x:Name="Buy_Copy" Content="Clear All" HorizontalAlignment="Right" Margin="0,857,476,0" VerticalAlignment="Top" Width="222" Height="58" FontSize="40" FontWeight="Bold" Click="Buy_Copy_Click"/>

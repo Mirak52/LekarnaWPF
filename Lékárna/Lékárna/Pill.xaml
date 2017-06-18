@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lékárna"
         mc:Ignorable="d"
-        Title="Pill" Height="300" Width="300">
+          WindowState="Maximized"
+        Title="Pill" Height="1080" Width="1920">
     <Grid>
-        
+        <StackPanel Margin="96,10,1337,84">
+            <Label x:Name="NameD" Content="Drug name" FontSize="20"/>
+            <TextBox x:Name="NameB" Height="40" TextWrapping="Wrap" Text="" Width="300" FontSize="20"/>
+            <Label x:Name="Drugprice" Content="Drug price" FontSize="20"/>
+            <TextBox x:Name="PassB" Height="40" TextWrapping="Wrap" Text="" Width="300" FontSize="20"/>
+            <Label x:Name="DrugWarning" Content="Drug warning" FontSize="20"/>
+            <TextBox x:Name="PassBA" Height="40" TextWrapping="Wrap" Text="" Width="300" FontSize="20"/>
+            <Label Height="20"/>
+            <Button x:Name="send" Height="40" Width="300" Content="Send" Click="send_Click" />
+        </StackPanel>
+        <StackPanel Margin="580,10,752,84">
+            <Label Content="Vlož ID léku" FontSize="20"></Label>
+            <TextBox x:Name="IDDrog"></TextBox>
+            <Label Content="Vlož ID Alergenu" FontSize="20"></Label>
+            <TextBox x:Name="IDAlergen"></TextBox>
+            <Button x:Name="Alergensend" Content="Odeslat" Click="Alergensend_Click"></Button>
+        </StackPanel>
+        <StackPanel Margin="1222,10,110,84">
+            <Label Content="Vlož jmeno alergenu" FontSize="20"></Label>
+            <TextBox x:Name="AlergenName"></TextBox>
+
+            <Button x:Name="AlergenCreate" Content="Odeslat" Click="AlergenCreate_Click"></Button>
+        </StackPanel>
+        <Button x:Name="Back" Height="40" Width="300" Content="Zpět" Click="Back_Click" />
     </Grid>
 </Window>

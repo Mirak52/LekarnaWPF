@@ -109,7 +109,7 @@ namespace Lékárna
 
         private void Forgot_Click(object sender, RoutedEventArgs e)
         {
-            AddAllergen Page = new AddAllergen();
+            Pill Page = new Pill();
             Page.Show();
             this.Close();
 

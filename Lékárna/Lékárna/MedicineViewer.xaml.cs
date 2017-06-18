@@ -115,5 +115,13 @@ namespace Lékárna
             ShopList.ItemsSource = Order;
             Price.Content = "";
         }
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            Order.Clear();
+            ShopList.ItemsSource = "";
+            ShopList.ItemsSource = Order;
+            Price.Content = "";
+        }
     }
 }

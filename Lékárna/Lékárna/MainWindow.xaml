@@ -19,6 +19,7 @@
             <Label x:Name="Error"  Width="320" FontSize="20" />
         </ListView>
         <Button x:Name="Register" Content="Registrovat" HorizontalAlignment="Center" Margin="840,580,962,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" Click="Register_Click"/>
-        <Button x:Name="Forgot" Content="Heslo?" HorizontalAlignment="Center" Margin="964,580,838,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" Click="Forgot_Click" />
+        <Button x:Name="Admin" Content="Admin" HorizontalAlignment="Center" Margin="964,580,838,0" VerticalAlignment="Top" Width="110" Height="30" FontSize="15" FontWeight="Normal" Click="Forgot_Click" />
+       
     </Grid>
 </Window>
